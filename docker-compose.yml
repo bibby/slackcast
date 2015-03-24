@@ -1,0 +1,58 @@
+---
+###
+# Slackcast composed docker application configuration
+#
+# There is much custom configuration required, so 
+# pay attention to each environment variable!
+#
+# Learn about docker: https://www.docker.com/
+# Learn about docker-compose: https://docs.docker.com/compose/ 
+redis:
+  image: redis:2.6
+
+storage:
+  image: slackcast/storage
+  
+rtm:
+  image: slackcast/rtm
+  links:
+    - redis
+  environment:
+    # Keep it secret, keep it safe.
+    - SLACK_TOKEN=xoxb-YOUR-SLACK-TOKEN
+    - CHANNEL_OUT=rtm-ivona
+
+ivona:
+  image: slackcast/ivona
+  volumes_from:
+    - storage
+  links:
+    - redis
+  environment:
+    # GUARD THESE! http://www.devfactor.net/2014/12/30/2375-amazon-mistake/
+    - IVONA_ACCESS_KEY=YOUR-IVONA-ACCESS-KEY
+    - IVONA_SECRET_KEY=YOUR-IVONA-SECREY-KEY
+    - CHANNEL_IN=rtm-ivona
+    - CHANNEL_OUT=ivona-shout
+
+shout:
+  image: slackcast/shout
+  links:
+    - redis
+  volumes_from:
+    - storage
+  ports:
+    - 8000:8000
+  environment:
+    - CHANNEL_IN=ivona-shout
+    - ICECAST_HOSTNAME=localhost
+    - ICECAST_PORT=8000
+    - ICECAST_STREAM_NAME="My Slack Cast"
+    - ICECAST_STREAM_DESCRIPTION="My Slack Stream"
+    - ICECAST_ADMIN_EMAIL=you@yourdomain.com
+    - ICECAST_ADMIN_USERNAME=admin
+    - ICECAST_RELAY_PASSWORD=slackcast-pass
+    - ICECAST_SOURCE_PASSWORD=slackcast-pass
+    - ICECAST_BURST_ONCONNECT=0
+    - ICECAST_BURST_SIZE=0
+    - ICECAST_QUEUE_SIZE=32768
