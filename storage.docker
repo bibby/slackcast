@@ -1,0 +1,6 @@
+## Shared storage data container
+# It will immediately exit when started, this is normal
+FROM ubuntu:14.04.2
+VOLUME /opt/mp3s
+COPY files/storage /opt/mp3s
+CMD ["true"]

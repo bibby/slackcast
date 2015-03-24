@@ -1,0 +1,40 @@
+## Container for icecast2 and ezstream.
+# Is continuously playing silence until a 
+# rendered ivona mp3 is passed into its redis queue.
+# Configuration via docker-compose.yml is recommended.
+FROM ubuntu:14.04.2
+
+RUN apt-get update
+RUN apt-get install -y \
+  vim \
+  python-dev \
+  python-pip
+
+RUN apt-get install -y \
+  icecast2 \
+  ezstream
+
+ENV ICECAST_HOSTNAME "localhost"
+ENV ICECAST_PORT 8000
+ENV ICECAST_STREAM_NAME "Slack Stream"
+ENV ICECAST_STREAM_DESCRIPTION "Slack Stream"
+ENV ICECAST_STREAM_INFO_URL "http://no-where"
+ENV ICECAST_ADMIN_EMAIL "admin@localhost"
+ENV ICECAST_ADMIN_USERNAME "admin"
+ENV ICECAST_RELAY_PASSWORD "hackme"
+ENV ICECAST_SOURCE_PASSWORD "hackme"
+
+ENV_ICECAST_BURST_ONCONNECT 1
+ENV ICECAST_BURST_SIZE 65535
+ENV ICECAST_QUEUE_SIZE 524288
+
+WORKDIR /opt
+COPY files/shout ./
+
+VOLUME /opt/mp3s
+
+RUN pip install -r requirements.txt
+RUN pip install https://github.com/hay/xml2json/zipball/master
+
+CMD ["/bin/bash", "start.sh"]
+

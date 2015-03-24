@@ -1,0 +1,12 @@
+## Container for the Ivona.com Text to Speech service
+# You will need to supply your own API key.
+#
+FROM node:0.10.37
+MAINTAINER bibby <bibby@bbby.org>
+
+VOLUME /opt/mp3s
+WORKDIR /opt/src
+
+ADD files/ivona .
+RUN npm install
+CMD ["node", "index.js"]

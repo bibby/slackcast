@@ -1,0 +1,12 @@
+## Slackcast container for Slack Real Time Messaging.
+# You will need to supply your own API key.
+# Largely just accepts message events, and pumps
+# then into a redis queue.
+FROM node:0.10.37
+MAINTAINER bibby <bibby@bbby.org>
+
+WORKDIR /opt/rtm
+COPY files/rtm .
+
+RUN npm install
+CMD ["node", "index.js"]
