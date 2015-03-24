@@ -1,0 +1,18 @@
+{
+  "name": "slackcast-ivona",
+  "version": "0.0.1",
+  "description": "Ivona component for slackcast.",
+  "author": "bibby <bibby@bbby.org>",
+  "contributors": [
+    {
+      "name": "bibby",
+      "email": "bibby@bbby.org"
+    }
+  ],
+  "dependencies": {
+    "ivona-node": "*",
+    "redis": "*",
+    "js-sha256": "*"
+  },
+  "start": "node index.js"
+}
