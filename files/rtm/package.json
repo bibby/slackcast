@@ -1,7 +1,7 @@
 {
-  "name": "slackcast-ivona",
+  "name": "slackcast-rtm",
   "version": "0.0.1",
-  "description": "Ivona component for slackcast.",
+  "description": "Slack client to redis relay",
   "start": "node index.js",
   "author": "bibby <bibby@bbby.org>",
   "contributors": [
@@ -11,9 +11,8 @@
     }
   ],
   "dependencies": {
-    "ivona-node": "*",
-    "redis": "*",
-    "js-sha256": "*"
+    "redis": "^0.12.1",
+    "slack-client": "^1.4.0"
   },
   "engines": {
     "node": ">= 0.10.x",
