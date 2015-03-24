@@ -1,0 +1,46 @@
+{
+    "icecast": {
+        "admin": "ICECAST_ADMIN_EMAIL",
+        "authentication": {
+            "admin-password": "ICECAST_ADMIN_PASSWORD",
+            "admin-user": "ICECAST_ADMIN_USERNAME",
+            "relay-password": "ICECAST_RELAY_PASSWORD",
+            "source-password": "ICECAST_SOURCE_PASSWORD"
+        },
+        "fileserve": "1",
+        "hostname": "ICECAST_HOSTNAME",
+        "limits": {
+            "burst-on-connect": "ICECAST_BURST_ONCONNECT",
+            "burst-size": "ICECAST_BURST_SIZE",
+            "client-timeout": "30",
+            "clients": "100",
+            "header-timeout": "15",
+            "queue-size": "ICECAST_QUEUE_SIZE",
+            "source-timeout": "10",
+            "sources": "2",
+            "threadpool": "5"
+        },
+        "listen-socket": {
+            "port": "ICECAST_PORT"
+        },
+        "location": "Earth",
+        "logging": {
+            "loglevel": "3",
+            "logsize": "10000"
+        },
+        "paths": {
+            "adminroot": "/usr/share/icecast2/admin",
+            "alias": null,
+            "basedir": "/usr/share/icecast2",
+            "logdir": "/log",
+            "webroot": "/usr/share/icecast2/web"
+        },
+        "security": {
+            "changeowner": {
+                "group": "icecast",
+                "user": "icecast2"
+            },
+            "chroot": "1"
+        }
+    }
+}

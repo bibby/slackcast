@@ -1,0 +1,18 @@
+{
+    "ezstream": {
+        "filename": "stdin",
+        "format": "MP3",
+        "sourcepassword": "ICECAST_SOURCE_PASSWORD",
+        "stream_once": "1",
+        "svrinfobitrate": "48",
+        "svrinfochannels": "1",
+        "svrinfodescription": "ICECAST_STREAM_DESCRIPTION",
+        "svrinfogenre": "Talk",
+        "svrinfoname": "ICECAST_STREAM_NAME",
+        "svrinfopublic": "0",
+        "svrinfoquality": "2.0",
+        "svrinfosamplerate": "22050",
+        "svrinfourl": "ICECAST_STREAM_INFO_URL",
+        "url": "http://localhost:ICECAST_PORT/stream"
+    }
+}
