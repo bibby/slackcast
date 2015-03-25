@@ -1,16 +1,16 @@
 # Slackcast
 
-A streaming mp3 broadcast of your Slack team chat using Ivona text-to-speech.
+A streaming mp3 broadcast of your [Slack team chat](https://slack.com/) using [Ivona text-to-speech](http://www.ivona.com/).
 
 Using Slack as the center of team chat can be a great benefit (the same could be said for HipChat, Hangouts, or IRC), but if you're making an effort to be distraction-free, having a window begging to be watched can become a source of pressure. Why watch when you can listen? 
 
 ## Before you begin
 
-This application ships in a few docker containers, and start/stopped using `docker-compose`. Named dockerfiles are used, so the minimum docker version required is 1.5.
+This application ships in a few [docker](https://www.docker.com/) containers, and start/stopped using [docker-compose](http://docs.docker.com/compose/). Named dockerfiles are used, so the minimum docker version required is 1.5.
 
-You will need a Slack token to hook into the Real Time Messaging API. Learn more about that in the Slack documentation. You will likely need to create a named bot user in your team roster.
+You will need a Slack token to hook into the Real Time Messaging API. Learn more about that in the [Slack documentation](https://api.slack.com/rtm). You will likely need to create a named bot user in your team roster.
 
-Finally, you will need an API Key to Ivona to generate mp3s using their TTS service.
+Finally, you will need an API Key to [Ivona](http://developer.ivona.com/en/index.html) to generate mp3s using their TTS service.
 
 ## Installing
 
